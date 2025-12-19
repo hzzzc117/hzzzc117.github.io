@@ -39,21 +39,21 @@
 </head>
 <body>
     <div class="counter-container">
-        <div class="label">已提交人数</div>
+        <div class="label">Số lượng đăng ký hiện tại</div>
         <div class="number" id="count">--</div>
-        <div class="update-time" id="time">正在加载...</div>
+        <div class="update-time" id="time">Loading...</div>
     </div>
 
     <script>
         // 替换为你第一步获得的真实 Web App URL
-        const webAppUrl = 'https://script.google.com/macros/s/AKfycbyI4tP_sfl7AyGyatwIxQEKje1i-WL4xV8O_3L3YOSKyaTUR2kW9xrmmX0zTQo5PfYcfA/exec';
+        const webAppUrl = 'https://script.google.com/macros/s/AKfycbx-zDdX99BrhEg5TLLjGnHnemg-Xn5dV9KfxsBRN6mWXYLzidhpC9i7XdXJByfOf-VOKw/exec';
 
         async function updateCount() {
             try {
                 const response = await fetch(webAppUrl);
                 const newCount = await response.text();
                 document.getElementById('count').textContent = newCount;
-                document.getElementById('time').textContent = `最后更新：${new Date().toLocaleTimeString()}`;
+                document.getElementById('time').textContent = `Thời gian thu thập dữ liệu：${new Date().toLocaleTimeString()}`;
             } catch (error) {
                 console.error('获取数据失败:', error);
                 document.getElementById('count').textContent = 'Err';
@@ -67,5 +67,4 @@
         setInterval(updateCount, 10000);
     </script>
 </body>
-
 </html>
